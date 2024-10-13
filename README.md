@@ -52,8 +52,6 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 [![][back-to-top]](#readme-top)
 
----
-
 <!-- SHIELD LINKS -->
 
 [version-shield]: https://img.shields.io/badge/version-0.0.1-purple
@@ -68,3 +66,4 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 [issues-link]: https://github.com/undefineds-co/undefineds/issues
 [stars-shield]: https://img.shields.io/github/stars/undefineds-co/undefineds?logo=github
 [stars-link]: https://github.com/undefineds-co/undefineds/stargazers
+[back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
