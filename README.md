@@ -1,24 +1,70 @@
-# undefineds
-Live Simpler With AI
+<div align="center">
+  <a name="readme-top"></a>
+  <h1>undefineds</h1>
 
-## Privacy-First Messaging Platform
+  <p>
+    <strong>Live Simpler With AI</strong> ✨
+  </p>
 
-Our platform is built on the Solid project, ensuring privacy protection while managing all your daily messaging data. This includes chat histories, contacts, favorites, files, and more, all securely handled to give you peace of mind.
+  <!-- SHIELD GROUP -->
 
-Thanks to the Solid project, all personal data is represented in a semantic web format within pod-servers. This allows third-party developers to easily and with privacy protection create message-based applications, greatly enhancing your convenience.
+  [![][version-shield]][version-link]
+  [![][license-shield]][license-link]
+  [![][build-shield]][build-link]
+  [![][coverage-shield]][coverage-link]
+  [![][issues-shield]][issues-link]
+  [![][stars-shield]][stars-link]
 
-## Co-write your own story
+</div>
 
-Our platform offers a comprehensive approach to collecting your information across multiple endpoints, allowing you to gather data anytime and anywhere. It seamlessly integrates with various software plugins, including wearable devices and Solid-based third-party apps, to provide a holistic view of your digital footprint.
+---
 
-AI plays a pivotal role in this process by automatically collecting, organizing, distilling, and expressing raw data to construct a layered knowledge graph of your personal history. This process requires minimal human intervention, allowing you to effortlessly deconstruct your history with minimal effort, primarily for correcting AI actions if necessary.
+## Overview
 
-These histories are invaluable assets, helping you gain deeper self-awareness and enabling AI to better understand you. This not only aids your personal growth but also contributes to the broader evolution of civilization.
+**undefineds** is a cutting-edge platform designed to simplify your life with AI. Built on the Solid project, it ensures privacy while offering powerful features to manage your digital world. 🔒
 
-## Copilot your Life
+## Features
 
-Leveraging your personal history, your AI is trained to become an intuitive companion that truly understands you. This deep connection is evident in your interactions, where the AI resonates with your thoughts and preferences.
+### Privacy-First Messaging Platform
+- **Secure Data Management**: Manage chat histories, contacts, and more with privacy protection. 🔐
+- **Third-Party Integration**: Easily create message-based applications with privacy in mind. 🤝
 
-The AI assists you by automating various informational tasks and offers an efficient feedback mechanism through a Human In The Loop approach. This allows you to guide the AI in correcting its mistakes and aligning its actions with your preferences.
+### Co-write your own story
+- **Comprehensive Data Collection**: Gather data anytime, anywhere across multiple endpoints. 🌐
+- **AI-Driven Insights**: Automatically build a knowledge graph of your personal history. 📚
 
-Furthermore, your AI can help you plan complex tasks and even assist in achieving ambitious goals, providing strategic insights and support to navigate your life's journey.
+### Copilot your Life
+- **Personalized AI Companion**: An AI that truly understands you and assists in daily tasks. 🤖
+- **Goal Planning and Achievement**: Plan complex tasks and achieve ambitious goals with AI support. 🎯
+
+## Getting Started
+
+1. **Installation**: Instructions on how to install the platform. 🛠️
+2. **Usage**: Basic usage examples and commands. 📖
+
+## Contributing
+
+We welcome contributions! Please see our [contributing guidelines](CONTRIBUTING.md) for more details. 🙌
+
+## License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details. 📄
+
+[![][back-to-top]](#readme-top)
+
+---
+
+<!-- SHIELD LINKS -->
+
+[version-shield]: https://img.shields.io/badge/version-0.0.1-purple
+[version-link]: https://github.com/undefineds-co/undefineds/releases
+[license-shield]: https://img.shields.io/badge/license-Apache%202.0-blue
+[license-link]: LICENSE
+[build-shield]: https://img.shields.io/github/actions/workflow/status/undefineds-co/undefineds/ci.yml?label=build&logo=github
+[build-link]: https://github.com/undefineds-co/undefineds/actions
+[coverage-shield]: https://img.shields.io/codecov/c/github/undefineds-co/undefineds?logo=codecov
+[coverage-link]: https://codecov.io/gh/undefineds-co/undefineds
+[issues-shield]: https://img.shields.io/github/issues/undefineds-co/undefineds?logo=github
+[issues-link]: https://github.com/undefineds-co/undefineds/issues
+[stars-shield]: https://img.shields.io/github/stars/undefineds-co/undefineds?logo=github
+[stars-link]: https://github.com/undefineds-co/undefineds/stargazers
