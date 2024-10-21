@@ -14,7 +14,7 @@ import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfi
 
 const FileMenu = memo<{ id: string }>(({ id }) => {
   const { t } = useTranslation('knowledgeBase');
-  const pathname = usePathname();
+  const pathname = usePathname()!;
   const { enableRAGEval } = useServerConfigStore(featureFlagsSelectors);
   const [activeKey, setActiveKey] = useState(
     pathname.startsWith(`/repos/${id}/evals`) ? 'eval' : 'files',

@@ -17,14 +17,15 @@ const Header = memo(() => {
   const { t } = useTranslation('setting');
 
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams()!;
   const activeSettingsKey = useActiveSettingsKey();
 
   const enableAuth = useUserStore(authSelectors.enabledAuth);
   const handleBackClick = () => {
     if (searchParams.has('session') && searchParams.has('showMobileWorkspace')) {
       router.push(`/chat?${searchParams.toString()}`);
-    } else {
+    }
+    {
       router.push(enableAuth ? '/me/settings' : '/me');
     }
   };
