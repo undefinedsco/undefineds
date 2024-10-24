@@ -1,6 +1,7 @@
 {
   "name": "@lobehub/chat",
   "version": "1.22.22",
+  "private": true,
   "description": "Lobe Chat - an open-source, high-performance chatbot framework that supports speech synthesis, multimodal, and extensible Function Call plugin system. Supports one-click free deployment of your private ChatGPT/LLM web application.",
   "keywords": [
     "framework",
@@ -40,16 +41,19 @@
     "db:push-test": "NODE_ENV=test drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:z-pull": "drizzle-kit introspect",
-    "dev": "next dev -p 3010",
+    "dev": "npm-run-all --parallel electron:dev next:dev",
     "docs:i18n": "lobe-i18n md && npm run lint:mdx",
     "docs:seo": "lobe-seo && npm run lint:mdx",
     "electron:build": "tsup",
+    "electron:build:watch": "tsup --watch",
+    "electron:dev": "npm-run-all --parallel electron:build:watch electron:watch",
     "electron:dist": "electron-builder --dir",
     "electron:dist:deb": "electron-builder --linux deb",
     "electron:dist:dmg": "electron-builder --mac",
     "electron:dist:exe": "electron-builder --win --x64",
-    "electron:install": "npm install --workspace=electron",
-    "export": "EXPORT=true next build",
+    "electron:install": "cd electron; npm install",
+    "electron:link": "node scripts/electron/create-synmlink.js electron",
+    "electron:watch": "cross-env NODE_ENV='development' nodemon",
     "i18n": "npm run workflow:i18n && lobe-i18n",
     "lint": "npm run lint:ts && npm run lint:style && npm run type-check && npm run lint:circular",
     "lint:circular": "dpdm src/**/*.ts  --warning false  --tree false  --exit-code circular:1  -T true --skip-dynamic-imports circular",
@@ -57,6 +61,8 @@
     "lint:mdx": "npm run workflow:mdx-with-lint && prettier -c --write \"{src,docs}/**/*.mdx\" && npm run workflow:mdx-with-lint",
     "lint:style": "stylelint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
     "lint:ts": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
+    "next:dev": "next dev -p 3010",
+    "next:export": "EXPORT=true next build",
     "postinstall.": "electron-builder install-app-deps",
     "prepare": "husky",
     "prettier": "prettier -c --write \"**/**\"",
@@ -157,6 +163,7 @@
     "brotli-wasm": "^3.0.1",
     "chroma-js": "^2.6.0",
     "cliui": "^8.0.1",
+    "cross-env": "^7.0.3",
     "dayjs": "^1.11.13",
     "debug": "^4.3.6",
     "dexie": "^3.2.7",
@@ -188,6 +195,8 @@
     "next-auth": "beta",
     "next-mdx-remote": "^4.4.1",
     "nextjs-toploader": "^3.6.15",
+    "nodemon": "^3.1.7",
+    "npm-run-all": "^4.1.5",
     "numeral": "^2.0.6",
     "nuqs": "^1.17.8",
     "officeparser": "^4.1.1",
@@ -322,9 +331,17 @@
     "vitest": "^2.1.3",
     "vitest-canvas-mock": "^0.3.3"
   },
+  "packageManager": "yarn@1.22.22",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "packageManager.": "pnpm@9.12.0"
+  "workspace": {
+    "pckages": [
+      "electron"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  }
 }

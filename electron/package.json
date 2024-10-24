@@ -25,20 +25,14 @@
   "license": "Apache-2.0",
   "author": "Undefineds <team@undefineds.co>",
   "sideEffects": false,
-  "main": "build/main.js",
-  "scripts": {
-    "electron:build": "tsup",
-    "electron:build:watch": "tsup --watch",
-    "electron:dev": "npm-run-all --parallel electron:build:watch electron:watch",
-    "electron:watch": "cross-env NODE_ENV='development' nodemon"
-  },
   "dependencies": {
     "@electron-toolkit/utils": "^3.0.0",
+    "electron-log": "^5.2.0",
     "get-port-please": "^3.1.2"
   },
+  "packageManager": "yarn@1.22.22",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  },
-  "packageManager.": "pnpm@9.12.0"
+  }
 }
