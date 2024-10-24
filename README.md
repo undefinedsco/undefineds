@@ -8,12 +8,12 @@
 
   <!-- SHIELD GROUP -->
 
-  [![][version-shield]][version-link]
-  [![][license-shield]][license-link]
-  [![][build-shield]][build-link]
-  [![][coverage-shield]][coverage-link]
-  [![][issues-shield]][issues-link]
-  [![][stars-shield]][stars-link]
+[![][version-shield]][version-link]
+[![][license-shield]][license-link]
+[![][build-shield]][build-link]
+[![][coverage-shield]][coverage-link]
+[![][issues-shield]][issues-link]
+[![][stars-shield]][stars-link]
 
 </div>
 
@@ -26,14 +26,17 @@
 ## Features
 
 ### Privacy-First Messaging Platform
+
 - **Secure Data Management**: Manage chat histories, contacts, and more with privacy protection. 🔐
 - **Third-Party Integration**: Easily create message-based applications with privacy in mind. 🤝
 
 ### Co-write your own story
+
 - **Comprehensive Data Collection**: Gather data anytime, anywhere across multiple endpoints. 🌐
 - **AI-Driven Insights**: Automatically build a knowledge graph of your personal history. 📚
 
 ### Copilot your Life
+
 - **Personalized AI Companion**: An AI that truly understands you and assists in daily tasks. 🤖
 - **Goal Planning and Achievement**: Plan complex tasks and achieve ambitious goals with AI support. 🎯
 
@@ -54,16 +57,16 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 <!-- SHIELD LINKS -->
 
-[version-shield]: https://img.shields.io/badge/version-0.0.1-purple
-[version-link]: https://github.com/undefineds-co/undefineds/releases
-[license-shield]: https://img.shields.io/badge/license-Apache%202.0-blue
-[license-link]: LICENSE
-[build-shield]: https://img.shields.io/github/actions/workflow/status/undefineds-co/undefineds/ci.yml?label=build&logo=github
-[build-link]: https://github.com/undefineds-co/undefineds/actions
-[coverage-shield]: https://img.shields.io/codecov/c/github/undefineds-co/undefineds?logo=codecov
-[coverage-link]: https://codecov.io/gh/undefineds-co/undefineds
-[issues-shield]: https://img.shields.io/github/issues/undefineds-co/undefineds?logo=github
-[issues-link]: https://github.com/undefineds-co/undefineds/issues
-[stars-shield]: https://img.shields.io/github/stars/undefineds-co/undefineds?logo=github
-[stars-link]: https://github.com/undefineds-co/undefineds/stargazers
 [back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
+[build-link]: https://github.com/undefineds-co/undefineds/actions
+[build-shield]: https://img.shields.io/github/actions/workflow/status/undefineds-co/undefineds/ci.yml?label=build&logo=github
+[coverage-link]: https://codecov.io/gh/undefineds-co/undefineds
+[coverage-shield]: https://img.shields.io/codecov/c/github/undefineds-co/undefineds?logo=codecov
+[issues-link]: https://github.com/undefineds-co/undefineds/issues
+[issues-shield]: https://img.shields.io/github/issues/undefineds-co/undefineds?logo=github
+[license-link]: LICENSE
+[license-shield]: https://img.shields.io/badge/license-Apache%202.0-blue
+[stars-link]: https://github.com/undefineds-co/undefineds/stargazers
+[stars-shield]: https://img.shields.io/github/stars/undefineds-co/undefineds?logo=github
+[version-link]: https://github.com/undefineds-co/undefineds/releases
+[version-shield]: https://img.shields.io/badge/version-0.0.1-purple
