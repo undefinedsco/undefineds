@@ -13,7 +13,7 @@ import { useCategory } from './useCategory';
 
 const Category = memo(() => {
   const items = useCategory();
-  const pathname = usePathname();
+  const pathname = usePathname()!;
   const selectedKey = useMemo(() => {
     if (pathname.includes('/discover/assistants/')) {
       return pathname.split('/')[3]?.split('?')[0];

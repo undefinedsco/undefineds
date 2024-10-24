@@ -1,0 +1,38 @@
+{
+  "name": "@undefineds/undefineds",
+  "version": "0.0.1",
+  "description": "undefineds Live Simplier With AI",
+  "keywords": [
+    "framework",
+    "chatbot",
+    "chatgpt",
+    "nextjs",
+    "vercel-ai",
+    "openai",
+    "azure-openai",
+    "visual-model",
+    "tts",
+    "stt"
+  ],
+  "homepage": "https://github.com/undefineds-co/undefineds",
+  "bugs": {
+    "url": "https://github.com/undefineds-co/undefineds/issues/new/choose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/undefineds-co/undefineds.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Undefineds <team@undefineds.co>",
+  "sideEffects": false,
+  "dependencies": {
+    "@electron-toolkit/utils": "^3.0.0",
+    "electron-log": "^5.2.0",
+    "get-port-please": "^3.1.2"
+  },
+  "packageManager": "yarn@1.22.22",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

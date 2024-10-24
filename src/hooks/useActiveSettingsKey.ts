@@ -7,7 +7,7 @@ import { SettingsTabs } from '@/store/global/initialState';
  * Returns the active setting page key (common/sync/agent/...)
  */
 export const useActiveSettingsKey = () => {
-  const pathname = usePathname();
+  const pathname = usePathname()!;
   const { tab } = useQuery();
 
   const tabs = pathname.split('/').at(-1);

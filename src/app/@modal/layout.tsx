@@ -10,7 +10,7 @@ import InterceptingLayout from './features/InterceptingContext';
 const InterceptingModal = memo<PropsWithChildren>(({ children }) => {
   const [open, setOpen] = useState(true);
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = usePathname()!;
   const isDiscover = pathname.startsWith('/discover');
   const theme = useTheme();
 

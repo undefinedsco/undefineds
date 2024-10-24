@@ -22,7 +22,7 @@ const MOBILE_NAV_ROUTES = new Set([
 
 const Layout = memo(({ children, nav }: LayoutProps) => {
   const { showMobileWorkspace } = useQuery();
-  const pathname = usePathname();
+  const pathname = usePathname()!;
   const { url } = qs.parseUrl(pathname);
   const showNav = !showMobileWorkspace && MOBILE_NAV_ROUTES.has(url);
 

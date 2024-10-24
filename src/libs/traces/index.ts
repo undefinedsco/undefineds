@@ -39,6 +39,7 @@ export class TraceClient {
     const trace = this.createTrace({ id: traceId });
     if (!trace) return;
 
+    // @ts-ignore
     return new TraceEventClient(trace);
   }
 
