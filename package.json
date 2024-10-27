@@ -1,8 +1,8 @@
 {
-  "name": "@lobehub/chat",
-  "version": "1.22.26",
+  "name": "undefineds",
+  "version": "0.0.2",
   "private": true,
-  "description": "Lobe Chat - an open-source, high-performance chatbot framework that supports speech synthesis, multimodal, and extensible Function Call plugin system. Supports one-click free deployment of your private ChatGPT/LLM web application.",
+  "description": "Undefineds - Live Simpler With AI",
   "keywords": [
     "framework",
     "chatbot",
@@ -15,16 +15,16 @@
     "tts",
     "stt"
   ],
-  "homepage": "https://github.com/lobehub/lobe-chat",
+  "homepage": "https://github.com/undefineds-co/undefineds",
   "bugs": {
-    "url": "https://github.com/lobehub/lobe-chat/issues/new/choose"
+    "url": "https://github.com/undefineds-co/undefineds/issues/new/choose"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lobehub/lobe-chat.git"
+    "url": "https://github.com/undefineds-co/undefineds.git"
   },
-  "license": "MIT",
-  "author": "LobeHub <i@lobehub.com>",
+  "license": "Apache-2.0",
+  "author": "Undefineds <i@undefiends.co>",
   "sideEffects": false,
   "main": "build/main.js",
   "scripts": {
@@ -326,6 +326,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "productName": "Undefineds",
   "workspace": {
     "pckages": [
       "electron"

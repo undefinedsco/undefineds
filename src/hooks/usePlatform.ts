@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import {
   getBrowser,
   getPlatform,
+  isElectron,
   isInStandaloneMode,
   isSonomaOrLaterSafari,
 } from '@/utils/platform';
@@ -16,9 +17,10 @@ export const usePlatform = () => {
     isChrome: browser.current === 'Chrome',
     isChromium: browser.current && ['Chrome', 'Edge', 'Opera', 'Brave'].includes(browser.current),
     isEdge: browser.current === 'Edge',
+    isElectron: isElectron(),
     isIOS: platform.current === 'iOS',
     isMacOS: platform.current === 'Mac OS',
-    isPWA: isInStandaloneMode(),
+    isPWA: isInStandaloneMode() || isElectron(),
     isSafari: browser.current === 'Safari',
     isSonomaOrLaterSafari: isSonomaOrLaterSafari(),
   };
