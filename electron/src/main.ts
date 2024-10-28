@@ -5,13 +5,15 @@ import { getPort } from 'get-port-please';
 import { startServer } from 'next/dist/server/lib/start-server';
 import { join } from 'node:path';
 
+const APP_NAME = 'undefineds';
 let isQuitting = false;
 
 const startNextJSServer = async () => {
   try {
     const nextJSPort = await getPort({ portRange: [30_011, 50_000] });
     const webDir = app.getAppPath();
-
+    process.env.title = APP_NAME;
+    process.env.FEATURE_FLAGS = '-check_updates';
     await startServer({
       allowRetry: false,
       customServer: true,
@@ -33,6 +35,7 @@ const startNextJSServer = async () => {
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
     height: 800,
+    title: APP_NAME,
     webPreferences: {
       nodeIntegration: true,
       preload: join(__dirname, 'preload.js'),
@@ -41,6 +44,12 @@ const createWindow = () => {
   });
 
   mainWindow.on('ready-to-show', () => mainWindow.show());
+  mainWindow.webContents.on('did-finish-load', () => {
+    if (mainWindow) {
+      mainWindow.setTitle(APP_NAME);
+      mainWindow.webContents.setZoomFactor(0.8);
+    }
+  });
   mainWindow.on('close', (event) => {
     if (process.platform === 'darwin' && !isQuitting) {
       event.preventDefault();
@@ -72,8 +81,24 @@ const startApp = async () => {
     app.quit();
     return;
   }
+  app.setName(APP_NAME);
   await app.whenReady();
-  createWindow();
+  const path = app.getPath('userData');
+  log.info('App ready', path);
+  const mainWindow = createWindow();
+  let index = '';
+  if (is.dev) {
+    index = 'http://localhost:3010';
+  } else {
+    try {
+      const port = await startNextJSServer();
+      log.info('Next.js server started on port:', port);
+      index = `http://localhost:${port}`;
+    } catch (error) {
+      log.error('Error starting Next.js server:', error);
+    }
+  }
+  mainWindow.loadURL(index);
 
   ipcMain.on('ping', () => log.info('pong'));
 
