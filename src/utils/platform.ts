@@ -25,6 +25,11 @@ export const browserInfo = {
 
 export const isMacOS = () => getPlatform() === 'Mac OS';
 
+export const isElectron = () => {
+  if (typeof navigator === 'undefined') return false;
+  return navigator.userAgent.includes('Electron');
+};
+
 export const isInStandaloneMode = () => {
   if (isOnServerSide) return false;
   return (
