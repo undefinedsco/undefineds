@@ -1,0 +1,10 @@
+{
+  "login": "Connexion",
+  "loginOrSignup": "Connexion / Inscription",
+  "profile": "Profil",
+  "security": "Sécurité",
+  "signout": "Déconnexion",
+  "signup": "Inscription",
+  "switch": "Changer",
+  "unknown": "Utilisateur inconnu"
+}

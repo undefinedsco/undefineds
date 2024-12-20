@@ -12,8 +12,14 @@ export default {
     retry: '重新加载',
     title: '页面遇到一点问题..',
   },
-  fetchError: '请求失败',
-  fetchErrorDetail: '错误详情',
+  fetchError: {
+    detail: '错误详情',
+    title: '请求失败',
+  },
+  loginRequired: {
+    desc: '即将自动跳转到登录页面',
+    title: '请登录后使用该功能',
+  },
   notFound: {
     backHome: '返回首页',
     check: '请检查你的 URL 是否正确',
@@ -118,6 +124,7 @@ export default {
 
     // Github Token
     InvalidGithubToken: 'Github PAT 不正确或为空，请检查 Github PAT 后重试',
+    ConnectionCheckFailed: '请求返回为空，请检查 API 代理地址末尾是否未包含 `/v1`',
 
     /* eslint-enable */
   },

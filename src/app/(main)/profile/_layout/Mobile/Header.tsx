@@ -11,8 +11,8 @@ const Header = memo(() => {
   const { t } = useTranslation('auth');
 
   const router = useRouter();
-  const pathname = usePathname()!;
-  const isSecurity = pathname.startsWith('/profile/security');
+  const pathname = usePathname();
+  const isSecurity = pathname.startsWith('/prifile/security');
   return (
     <MobileNavBar
       center={<MobileNavBarTitle title={t(isSecurity ? 'security' : 'profile')} />}

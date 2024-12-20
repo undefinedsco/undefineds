@@ -31,7 +31,7 @@ interface StoreSearchBarProps extends SearchBarProps {
 
 const StoreSearchBar = memo<StoreSearchBarProps>(({ mobile, onBlur, onFocus, ...rest }) => {
   const [active, setActive] = useState(false);
-  const pathname = usePathname()!;
+  const pathname = usePathname();
   const { q } = useQuery();
   const { activeKey } = useNav();
   const [searchKey, setSearchKey] = useQueryState('q');

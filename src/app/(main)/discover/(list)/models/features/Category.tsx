@@ -17,7 +17,7 @@ import { DiscoverProviderItem } from '@/types/discover';
 import CategoryMenu, { ICON_SIZE } from '../../../components/CategoryMenu';
 
 const Category = memo<{ data: DiscoverProviderItem[] }>(({ data }) => {
-  const pathname = usePathname()!;
+  const pathname = usePathname();
   const selectedKey = useMemo(() => {
     if (pathname.includes('/discover/models/')) {
       return pathname.split('/')[3]?.split('?')[0];

@@ -24,9 +24,7 @@ describe('imageToBase64', () => {
       toDataURL: vi.fn().mockReturnValue('data:image/webp;base64,mockBase64Data'),
     } as unknown as HTMLCanvasElement;
 
-    vi.spyOn(document, 'createElement').mockReturnValue(
-      mockCanvas as unknown as Electron.WebviewTag,
-    );
+    // vi.spyOn(document, 'createElement').mockReturnValue(mockCanvas);
   });
 
   afterEach(() => {

@@ -8,7 +8,7 @@ import urlJoin from 'url-join';
 import { mobileHeaderSticky } from '@/styles/mobileHeader';
 
 const Header = memo(() => {
-  const pathname = usePathname()!;
+  const pathname = usePathname();
   const router = useRouter();
 
   const path = pathname.split('/').filter(Boolean)[1];

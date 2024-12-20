@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/layout/AuthProvider": ["./src/layout/AuthProvider/index.electron"]
+    }
+  }
+}

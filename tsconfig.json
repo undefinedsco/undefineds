@@ -28,6 +28,7 @@
     ]
   },
   "exclude": ["node_modules", "public/sw.js"],
+  "extends": "./tsconfig.electron.json",
   "include": [
     "next-env.d.ts",
     "vitest.config.ts",

@@ -188,6 +188,11 @@ const nextConfig = {
 
     config.resolve.alias.canvas = false;
 
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@/layout/AuthProvider': './src/layout/AuthProvider/index.electron',
+    };
+
     return config;
   },
 };
