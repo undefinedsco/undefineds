@@ -14,6 +14,9 @@ const SolidProvider = memo(({ children }: PropsWithChildren) => {
   return (
     <SessionProvider
       onError={(error) => console.error('SessionProviderError', error)}
+      onSessionRestore={(previousUrl) => {
+        console.info('SessionProvider onSessionRestore', previousUrl);
+      }}
       restorePreviousSession={true}
       skipLoadingProfile={false}
     >

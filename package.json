@@ -1,8 +1,8 @@
 {
-  "name": "undefineds",
+  "name": "linq",
   "version": "0.0.3",
   "private": true,
-  "description": "Undefineds - Live Simpler With AI",
+  "description": "LinQ - Live Simpler With AI",
   "keywords": [
     "framework",
     "chatbot",
@@ -15,26 +15,26 @@
     "tts",
     "stt"
   ],
-  "homepage": "https://github.com/undefineds-co/undefineds",
+  "homepage": "https://github.com/undefinedsco/linq",
   "bugs": {
-    "url": "https://github.com/undefineds-co/undefineds/issues/new/choose"
+    "url": "https://github.com/undefinedsco/linq/issues/new/choose"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/undefineds-co/undefineds.git"
+    "url": "https://github.com/undefinedsco/linq.git"
   },
   "license": "Apache-2.0",
-  "author": "Undefineds <i@undefiends.co>",
+  "author": "Undefineds <developer@undefineds.co>",
   "sideEffects": false,
   "main": "build/main.js",
   "scripts": {
     "build": "next build",
-    "postbuild": "npm run build-sitemap && npm run build-migrate-db",
-    "build-migrate-db": "bun run db:migrate",
-    "build-sitemap": "tsx ./scripts/buildSitemapIndex/index.ts",
     "build:analyze": "ANALYZE=true next build",
     "build:docker": "DOCKER=true next build && npm run build-sitemap",
     "build:electron": "npm run electron:build && npm run elecii:tron:dist",
+    "postbuild": "npm run build-sitemap && npm run build-migrate-db",
+    "build-migrate-db": "bun run db:migrate",
+    "build-sitemap": "tsx ./scripts/buildSitemapIndex/index.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "MIGRATION_DB=1 tsx ./scripts/migrateServerDB/index.ts",
     "db:push": "drizzle-kit push",
@@ -61,7 +61,7 @@
     "lint:mdx": "npm run workflow:mdx-with-lint && prettier -c --write \"{src,docs}/**/*.mdx\" && npm run workflow:mdx-with-lint",
     "lint:style": "stylelint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
     "lint:ts": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
-    "next:dev": "next dev -p 3010",
+    "next:dev": "DEBUG=next:jsconfig-paths-plugin next dev -p 3010",
     "next:export": "EXPORT=true next build",
     "postinstall.": "electron-builder install-app-deps",
     "prepare": "husky",
@@ -74,11 +74,11 @@
     "start": "next start -p 3210",
     "stylelint": "stylelint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
     "test": "npm run test-app && npm run test-server",
+    "test:update": "vitest -u",
     "test-app": "vitest run --config vitest.config.ts",
     "test-app:coverage": "vitest run --config vitest.config.ts  --coverage",
     "test-server": "vitest run --config vitest.server.config.ts",
     "test-server:coverage": "vitest run --config vitest.server.config.ts --coverage",
-    "test:update": "vitest -u",
     "type-check": "tsc --noEmit",
     "webhook:ngrok": "ngrok http http://localhost:3011",
     "workflow:changelog": "tsx ./scripts/changelogWorkflow/index.ts",

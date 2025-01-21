@@ -7,6 +7,7 @@ import { setNamespace } from '@/utils/storeDebug';
 const n = setNamespace('s');
 
 export interface SolidStoreAction {
+  setCurrentUrl: (currentUrl: string) => void;
   setOidcIssuer: (oidcIssuer: string) => void;
   setProfile: (profile: User | null) => void;
 }
@@ -17,6 +18,9 @@ export const solidStoreAction: StateCreator<
   [],
   SolidStoreAction
 > = (set) => ({
+  setCurrentUrl: (currentUrl: string) => {
+    set({ currentUrl }, false, n('setCurrentUrl'));
+  },
   setOidcIssuer: (oidcIssuer: string) => {
     set({ oidcIssuer }, false, n('setOidcIssuer'));
   },
