@@ -201,7 +201,7 @@
     "openapi-fetch": "^0.9.8",
     "partial-json": "^0.1.7",
     "pdf-parse": "^1.1.1",
-    "pdfjs-dist": "4.4.168",
+    "pdfjs-dist": "4.8.69",
     "pg": "^8.13.0",
     "pino": "^9.5.0",
     "polished": "^4.3.1",
@@ -335,7 +335,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "productName": "Undefineds",
+  "productName": "LinQ",
   "workspace": {
     "pckages": [
       "electron"
