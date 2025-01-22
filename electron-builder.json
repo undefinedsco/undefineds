@@ -1,5 +1,5 @@
 {
-  "appId": "undefineds.co/undefineds",
+  "appId": "undefineds.co/linq",
   "asar": true,
   "asarUnpack": [
     "node_modules/next",
@@ -7,7 +7,7 @@
     "node_modules/sharp",
     "**\\*.{node,dll}"
   ],
-  "copyright": "Copyright (c) 2024 Undefineds Co.",
+  "copyright": "Copyright (c) 2025 Undefineds Co.",
   "dmg": {
     "icon": "resources/icon.icns"
   },
@@ -63,7 +63,7 @@
     "icon": "resources/icon.icns"
   },
   "npmRebuild": false,
-  "productName": "Undefineds",
+  "productName": "LinQ",
   "win": {
     "target": ["nsis"],
     "icon": "resources/icon.ico"

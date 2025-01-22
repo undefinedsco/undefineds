@@ -1,6 +1,7 @@
 import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
+import { serverDB } from '@/database/server';
 import { AsyncTaskModel } from '@/database/server/models/asyncTask';
 import { ChunkModel } from '@/database/server/models/chunk';
 import { FileModel } from '@/database/server/models/file';
@@ -15,9 +16,9 @@ const fileProcedure = authedProcedure.use(async (opts) => {
 
   return opts.next({
     ctx: {
-      asyncTaskModel: new AsyncTaskModel(ctx.userId),
-      chunkModel: new ChunkModel(ctx.userId),
-      fileModel: new FileModel(ctx.userId),
+      asyncTaskModel: new AsyncTaskModel(serverDB, ctx.userId),
+      chunkModel: new ChunkModel(serverDB, ctx.userId),
+      fileModel: new FileModel(serverDB, ctx.userId),
     },
   });
 });
@@ -57,7 +58,7 @@ export const fileRouter = router({
         url: input.url,
       });
 
-      return { id, url: getFullFileUrl(input.url) };
+      return { id, url: await getFullFileUrl(input.url) };
     }),
   findById: fileProcedure
     .input(
@@ -69,7 +70,7 @@ export const fileRouter = router({
       const item = await ctx.fileModel.findById(input.id);
       if (!item) throw new TRPCError({ code: 'BAD_REQUEST', message: 'File not found' });
 
-      return { ...item, url: getFullFileUrl(item?.url) };
+      return { ...item, url: await getFullFileUrl(item?.url) };
     }),
 
   getFileItemById: fileProcedure
@@ -102,7 +103,7 @@ export const fileRouter = router({
         embeddingError: embeddingTask?.error,
         embeddingStatus: embeddingTask?.status as AsyncTaskStatus,
         finishEmbedding: embeddingTask?.status === AsyncTaskStatus.Success,
-        url: getFullFileUrl(item.url!),
+        url: await getFullFileUrl(item.url!),
       };
     }),
 
@@ -124,13 +125,14 @@ export const fileRouter = router({
       AsyncTaskType.Embedding,
     );
 
-    return fileList.map(({ chunkTaskId, embeddingTaskId, ...item }): FileListItem => {
+    const resultFiles = [] as any[];
+    for (const { chunkTaskId, embeddingTaskId, ...item } of fileList as any[]) {
       const chunkTask = chunkTaskId ? chunkTasks.find((task) => task.id === chunkTaskId) : null;
       const embeddingTask = embeddingTaskId
         ? embeddingTasks.find((task) => task.id === embeddingTaskId)
         : null;
 
-      return {
+      const fileItem = {
         ...item,
         chunkCount: chunks.find((chunk) => chunk.id === item.id)?.count ?? null,
         chunkingError: chunkTask?.error ?? null,
@@ -138,9 +140,12 @@ export const fileRouter = router({
         embeddingError: embeddingTask?.error ?? null,
         embeddingStatus: embeddingTask?.status as AsyncTaskStatus,
         finishEmbedding: embeddingTask?.status === AsyncTaskStatus.Success,
-        url: getFullFileUrl(item.url!),
-      };
-    });
+        url: await getFullFileUrl(item.url!),
+      } as FileListItem;
+      resultFiles.push(fileItem);
+    }
+
+    return resultFiles;
   }),
 
   removeAllFiles: fileProcedure.mutation(async ({ ctx }) => {
@@ -150,8 +155,6 @@ export const fileRouter = router({
   removeFile: fileProcedure.input(z.object({ id: z.string() })).mutation(async ({ input, ctx }) => {
     const file = await ctx.fileModel.delete(input.id);
 
-    // delete the orphan chunks
-    await ctx.chunkModel.deleteOrphanChunks();
     if (!file) return;
 
     // delele the file from remove from S3 if it is not used by other files
@@ -182,9 +185,6 @@ export const fileRouter = router({
     .input(z.object({ ids: z.array(z.string()) }))
     .mutation(async ({ input, ctx }) => {
       const needToRemoveFileList = await ctx.fileModel.deleteMany(input.ids);
-
-      // delete the orphan chunks
-      await ctx.chunkModel.deleteOrphanChunks();
 
       if (!needToRemoveFileList || needToRemoveFileList.length === 0) return;
 

@@ -56,22 +56,6 @@ const createWindow = () => {
       mainWindow.hide();
     }
   });
-
-  const loadURL = async () => {
-    if (is.dev) {
-      mainWindow.loadURL('http://localhost:3010');
-    } else {
-      try {
-        const port = await startNextJSServer();
-        log.info('Next.js server started on port:', port);
-        mainWindow.loadURL(`http://localhost:${port}`);
-      } catch (error) {
-        log.error('Error starting Next.js server:', error);
-      }
-    }
-  };
-
-  loadURL();
   return mainWindow;
 };
 

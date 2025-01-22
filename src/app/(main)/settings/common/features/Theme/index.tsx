@@ -12,6 +12,7 @@ import { useSyncSettings } from '@/app/(main)/settings/hooks/useSyncSettings';
 import { FORM_STYLE } from '@/const/layoutTokens';
 import { imageUrl } from '@/const/url';
 import AvatarWithUpload from '@/features/AvatarWithUpload';
+import NameSetting from '@/features/NameSetting';
 import { Locales, localeOptions } from '@/locales/resources';
 import { useUserStore } from '@/store/user';
 import {
@@ -27,6 +28,7 @@ type SettingItemGroup = ItemGroup;
 
 const Theme = memo(() => {
   const { t } = useTranslation('setting');
+  const { t: solid } = useTranslation('solid');
   const router = useRouter();
   const [form] = Form.useForm();
   const settings = useUserStore(settingsSelectors.currentSettings, isEqual);
@@ -47,9 +49,15 @@ const Theme = memo(() => {
   const theme: SettingItemGroup = {
     children: [
       {
+        children: <NameSetting />,
+        hidden: enableAuth,
+        label: solid('settingTheme.name'),
+        minWidth: undefined,
+      },
+      {
         children: <AvatarWithUpload />,
         hidden: enableAuth,
-        label: t('settingTheme.avatar.title'),
+        label: solid('settingTheme.avatar'),
         minWidth: undefined,
       },
       {
@@ -145,6 +153,7 @@ const Theme = memo(() => {
     ],
     title: t('settingTheme.title'),
   };
+  console.log('go into solid theme');
 
   return (
     <Form

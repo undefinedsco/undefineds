@@ -5,11 +5,12 @@ import { z } from 'zod';
 
 import { fileEnv } from '@/config/file';
 import { DEFAULT_EMBEDDING_MODEL } from '@/const/settings';
+import { NewChunkItem, NewEmbeddingsItem } from '@/database/schemas';
+import { serverDB } from '@/database/server';
 import { ASYNC_TASK_TIMEOUT, AsyncTaskModel } from '@/database/server/models/asyncTask';
 import { ChunkModel } from '@/database/server/models/chunk';
 import { EmbeddingModel } from '@/database/server/models/embedding';
 import { FileModel } from '@/database/server/models/file';
-import { NewChunkItem, NewEmbeddingsItem } from '@/database/server/schemas/lobechat';
 import { ModelProvider } from '@/libs/agent-runtime';
 import { asyncAuthedProcedure, asyncRouter as router } from '@/libs/trpc/async';
 import { initAgentRuntimeWithUserPayload } from '@/server/modules/AgentRuntime';
@@ -28,11 +29,11 @@ const fileProcedure = asyncAuthedProcedure.use(async (opts) => {
 
   return opts.next({
     ctx: {
-      asyncTaskModel: new AsyncTaskModel(ctx.userId),
-      chunkModel: new ChunkModel(ctx.userId),
+      asyncTaskModel: new AsyncTaskModel(serverDB, ctx.userId),
+      chunkModel: new ChunkModel(serverDB, ctx.userId),
       chunkService: new ChunkService(ctx.userId),
-      embeddingModel: new EmbeddingModel(ctx.userId),
-      fileModel: new FileModel(ctx.userId),
+      embeddingModel: new EmbeddingModel(serverDB, ctx.userId),
+      fileModel: new FileModel(serverDB, ctx.userId),
     },
   });
 });
@@ -105,9 +106,9 @@ export const fileRouter = router({
                 console.timeEnd(`任务[${number}]: embeddings`);
 
                 const items: NewEmbeddingsItem[] =
-                  embeddings?.map((e) => ({
-                    chunkId: chunks[e.index].id,
-                    embeddings: e.embedding,
+                  embeddings?.map((e, idx) => ({
+                    chunkId: chunks[idx].id,
+                    embeddings: e,
                     fileId: input.fileId,
                     model: input.model,
                   })) || [];

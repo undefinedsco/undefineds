@@ -39,8 +39,7 @@ export class TraceClient {
     const trace = this.createTrace({ id: traceId });
     if (!trace) return;
 
-    // @ts-ignore
-    return new TraceEventClient(trace);
+    return new TraceEventClient(trace as any);
   }
 
   createTrace(param: CreateLangfuseTraceBody) {

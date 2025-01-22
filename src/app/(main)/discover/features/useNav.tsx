@@ -10,7 +10,7 @@ import { useQuery } from '@/hooks/useQuery';
 import { DiscoverTab } from '@/types/discover';
 
 export const useNav = () => {
-  const pathname = usePathname()!;
+  const pathname = usePathname();
   const { type } = useQuery();
   const { t } = useTranslation('discover');
   const iconSize = { fontSize: 16 };

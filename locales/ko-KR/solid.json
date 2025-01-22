@@ -1,0 +1,10 @@
+{
+  "login": "로그인",
+  "loginOrSignup": "로그인 / 가입",
+  "profile": "프로필",
+  "security": "보안",
+  "signout": "로그아웃",
+  "signup": "가입",
+  "switch": "전환",
+  "unknown": "알 수 없는 사용자"
+}
