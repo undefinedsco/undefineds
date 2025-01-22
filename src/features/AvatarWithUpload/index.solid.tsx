@@ -14,6 +14,7 @@ import { Upload } from 'antd';
 import { memo } from 'react';
 
 import { avatars_container } from '@/const/solid';
+import { useSolidStore } from '@/store/solid';
 import { useUserStore } from '@/store/user';
 
 import UserAvatar, { type UserAvatarProps } from '../User/UserAvatar';
@@ -85,6 +86,7 @@ const setProfileAvatar = async (session: Session, destinationUrl: string) => {
 
 const AvatarWithUpload = memo<AvatarWithUploadProps>(({ size = 40, ...rest }) => {
   const updateAvatar = useUserStore((s) => s.updateAvatar);
+  const [user, setUser] = useSolidStore((state) => [state.user, state.setUser]);
   const { session } = useSession();
 
   if (!session?.info.webId) return null;
@@ -111,8 +113,11 @@ const AvatarWithUpload = memo<AvatarWithUploadProps>(({ size = 40, ...rest }) =>
       // 4. 更新本地状态
       const reader = new FileReader();
       reader.addEventListener('load', () => {
-        updateAvatar(reader.result as string);
-        console.log('update avatar success');
+        const image = reader.result as string;
+        updateAvatar(image);
+        console.log('update component user avatar success');
+        setUser({ ...user, image });
+        console.log('update local solid user avatar success');
       });
       reader.readAsDataURL(file);
     } catch (error) {

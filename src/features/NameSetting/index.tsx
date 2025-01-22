@@ -12,17 +12,19 @@ import { VCARD } from '@inrupt/vocab-common-rdf';
 import { Input } from '@lobehub/ui';
 import { memo, useEffect, useState } from 'react';
 
-import { useSolidSession } from '@/hooks/useSolidSession';
+// import { useSolidSession } from '@/hooks/useSolidSession';
+import { useSolidStore } from '@/store/solid';
 
 // import { EditOutlined } from '@ant-design/icons';
 
 const UpdateName = memo(() => {
   const { session } = useSession();
-  const { refresh, user } = useSolidSession();
-  const [name, setName] = useState(user?.name || '');
+  // const { refresh, user } = useSolidSession();
+  const [user, setUser] = useSolidStore((state) => [state.user, state.setUser]);
+  const [name, setName] = useState<string | null>(user?.name || null);
 
   useEffect(() => {
-    setName(user?.name || '');
+    setName(user?.name || null);
   }, [user?.name]);
 
   const updateSolidName = async () => {
@@ -41,7 +43,7 @@ const UpdateName = memo(() => {
       const updatedDataset = setThing(profileDataset, updatedProfile);
 
       await saveSolidDatasetAt(session.info.webId, updatedDataset, { fetch: session.fetch });
-      refresh();
+      setUser({ ...user, name: name });
       console.log('Updated full name successfully', name);
     } catch (error) {
       console.error('Failed to update full name:', error);
@@ -58,7 +60,7 @@ const UpdateName = memo(() => {
       onBlur={handleBlur}
       onChange={(e) => setName(e.target.value)}
       style={{ textAlign: 'right' }}
-      value={name}
+      value={name || ''}
     />
   );
 });

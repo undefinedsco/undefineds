@@ -35,12 +35,12 @@ export const useSolidSession = () => {
 
   const handleLogin = () => {
     console.info(`login ${session.info.sessionId} ${ctxProfile}`);
-    setProfile(ctxProfile);
+    if (ctxProfile) setProfile(ctxProfile);
   };
 
   const handleSessionRestore = () => {
     console.info(`restore ${session.info.sessionId} ${ctxProfile}`);
-    setProfile(ctxProfile);
+    if (ctxProfile) setProfile(ctxProfile);
   };
 
   const handleLogout = () => {

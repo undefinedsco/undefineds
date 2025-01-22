@@ -10,7 +10,6 @@ import { useTranslation } from 'react-i18next';
 import { CLIENT_NAME, SOLID_ISSUER } from '@/const/solid';
 import { SESSION_CHAT_URL } from '@/const/url';
 import { getLogo, getProvider, getUserName } from '@/helpers/solid';
-import { useSolidSession } from '@/hooks/useSolidSession';
 import { useSolidStore } from '@/store/solid';
 
 const { Title } = Typography;
@@ -87,7 +86,7 @@ const NewUserLogin = ({ sessionInProgress }: UserLoginProps) => {
         />
       </Flex>
       <Flex style={styles.textArea}>
-        {sessionInProgress ? <Title level={3}>{t('sessionInProgress')}</Title> : null}
+        {sessionInProgress ? <Title level={5}>{t('sessionInProgress')}</Title> : null}
       </Flex>
       <Flex style={styles.buttonArea} vertical>
         <Select onChange={handleChange} style={{ marginTop: '80px', width: '100%' }}>
@@ -139,10 +138,10 @@ const OldUserLogin: React.FC<UserLoginProps> = ({ user, onSwitch, onError, sessi
           size={120}
           style={{ pointerEvents: 'none' }}
         />
-        <Title level={3}>{name}</Title>
+        <Title level={4}>{name}</Title>
       </Flex>
       <Flex style={styles.textArea}>
-        {sessionInProgress ? <Title level={3}>{t('sessionInProgress')}</Title> : null}
+        {sessionInProgress ? <Title level={5}>{t('sessionInProgress')}</Title> : null}
       </Flex>
       <Flex style={styles.buttonArea} vertical>
         <LoginButton
@@ -186,7 +185,7 @@ const ErrorLogin: React.FC<UserLoginProps> = ({ user, onCancel }) => {
           size={120}
           style={{ pointerEvents: 'none' }}
         />
-        <Title level={3}>{name}</Title>
+        <Title level={4}>{name}</Title>
       </Flex>
       <Flex style={styles.buttonArea} vertical>
         <LoginButton
@@ -208,8 +207,8 @@ const ErrorLogin: React.FC<UserLoginProps> = ({ user, onCancel }) => {
 };
 
 const UserLogin = ({ sessionInProgress }: UserLoginProps) => {
-  const [profile, setCurrentUrl] = useSolidStore((state) => [state.profile, state.setCurrentUrl]);
-  const [isNew, setIsNew] = useState(!profile?.id);
+  const [user, setCurrentUrl] = useSolidStore((state) => [state.user, state.setCurrentUrl]);
+  const [isNew, setIsNew] = useState(!user?.id);
   const [isErr, setIsErr] = useState(false);
 
   useEffect(() => {
@@ -222,7 +221,7 @@ const UserLogin = ({ sessionInProgress }: UserLoginProps) => {
         setIsErr(false);
         setIsNew(true);
       }}
-      user={profile as User}
+      user={user as User}
     />
   ) : isNew ? (
     <NewUserLogin sessionInProgress={sessionInProgress} />
@@ -231,7 +230,7 @@ const UserLogin = ({ sessionInProgress }: UserLoginProps) => {
       onError={() => setIsErr(true)}
       onSwitch={() => setIsNew(true)}
       sessionInProgress={sessionInProgress}
-      user={profile as User}
+      user={user as User}
     />
   );
 };
@@ -260,10 +259,15 @@ const UserLoginInProgress = async () => {
 */
 
 const LoginModal = () => {
-  const { isLoggedIn, user } = useSolidSession();
-  const { sessionRequestInProgress } = useSession();
-  const [setProfile] = useSolidStore((state) => [state.setProfile]);
+  // const { isLoggedIn, user } = useSolidSession();
+  const { session, sessionRequestInProgress } = useSession();
+  const isLoggedIn = session.info.isLoggedIn;
+  // const [setProfile] = useSolidStore((state) => [state.setProfile]);
 
+  // const url = window.location.href;
+  // const inRedirect = url.includes('code=') && url.includes('state=');
+
+  /*
   useEffect(() => {
     if (isLoggedIn && user) {
       console.info('Set Solid profile', JSON.stringify(user));
@@ -271,6 +275,7 @@ const LoginModal = () => {
       // window.fetch = session.fetch.bind(session);
     }
   }, [isLoggedIn, user]);
+  */
 
   return (
     <Modal closable={false} footer={null} open={!isLoggedIn} width="280px">

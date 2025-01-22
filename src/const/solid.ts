@@ -10,7 +10,7 @@ export const SOLID_ISSUER = {
   undefineds: 'https://lgnxxsoohipf.sealosgzg.site',
 };
 
-export const CLIENT_NAME = 'https://undefineds.co/historia';
+export const CLIENT_NAME = 'https://undefineds.co/linq';
 
 export const avatars_container = (webId: string) => {
   const containerUrl = webId.split('/').slice(0, -2).join('/') + '/public/avatars';

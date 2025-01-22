@@ -1,4 +1,4 @@
-import { type User } from '@auth/core/types';
+import type { Profile, User } from '@auth/core/types';
 import type { StateCreator } from 'zustand/vanilla';
 
 import type { SolidStore } from '@/store/solid/index';
@@ -9,7 +9,8 @@ const n = setNamespace('s');
 export interface SolidStoreAction {
   setCurrentUrl: (currentUrl: string) => void;
   setOidcIssuer: (oidcIssuer: string) => void;
-  setProfile: (profile: User | null) => void;
+  setProfile: (profile: Profile | null) => void;
+  setUser: (user: User | null) => void;
 }
 
 export const solidStoreAction: StateCreator<
@@ -24,7 +25,10 @@ export const solidStoreAction: StateCreator<
   setOidcIssuer: (oidcIssuer: string) => {
     set({ oidcIssuer }, false, n('setOidcIssuer'));
   },
-  setProfile: (profile: User | null) => {
+  setProfile: (profile: Profile | null) => {
     set({ profile }, false, n('setProfile'));
+  },
+  setUser: (user: User | null) => {
+    set({ user }, false, n('setUser'));
   },
 });
