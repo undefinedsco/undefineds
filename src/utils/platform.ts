@@ -25,9 +25,13 @@ export const browserInfo = {
 
 export const isMacOS = () => getPlatform() === 'Mac OS';
 
-export const isElectron = () => {
-  if (typeof navigator === 'undefined') return false;
-  return navigator.userAgent.includes('Electron');
+export const isArc = () => {
+  if (isOnServerSide) return false;
+  return (
+    window.matchMedia('(--arc-palette-focus: var(--arc-background-simple-color))').matches ||
+    Boolean('arc' in window || 'ArcControl' in window || 'ARCControl' in window) ||
+    Boolean(getComputedStyle(document.documentElement).getPropertyValue('--arc-palette-title'))
+  );
 };
 
 export const isInStandaloneMode = () => {

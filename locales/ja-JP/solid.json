@@ -1,0 +1,10 @@
+{
+  "login": "ログイン",
+  "loginOrSignup": "ログイン / サインアップ",
+  "profile": "プロフィール",
+  "security": "セキュリティ",
+  "signout": "ログアウト",
+  "signup": "サインアップ",
+  "switch": "切り替え",
+  "unknown": "不明なユーザー"
+}

@@ -17,6 +17,9 @@ export default {
   back: '返回',
   batchDelete: '批量删除',
   blog: '产品博客',
+  branching: '创建子话题',
+  branchingDisable:
+    '「子话题」功能仅服务端版本可用，如需该功能，请切换到服务端部署模式或使用 LobeChat Cloud',
   cancel: '取消',
   changelog: '更新日志',
   close: '关闭',
@@ -113,6 +116,7 @@ export default {
     'en': '英语',
     'en-US': '英语',
     'es-ES': '西班牙语',
+    'fa-IR': '波斯语',
     'fi-FI': '芬兰语',
     'fr-FR': '法语',
     'hi-IN': '印地语',

@@ -68,12 +68,13 @@ const useStyles = createStyles(({ css, prefixCls, responsive, token }) => ({
     }
   `,
   help: css`
+    border-radius: 50%;
+
     font-size: 12px;
     font-weight: 500;
     color: ${token.colorTextDescription};
 
     background: ${token.colorFillTertiary};
-    border-radius: 50%;
 
     &:hover {
       color: ${token.colorText};
@@ -116,6 +117,7 @@ const ProviderConfig = memo<ProviderConfigProps>(
     className,
     name,
     showAceGcm = true,
+    showChecker = true,
     extra,
   }) => {
     const { t } = useTranslation('setting');
@@ -219,12 +221,14 @@ const ProviderConfig = memo<ProviderConfigProps>(
         label: t('llm.modelList.title'),
         name: [LLMProviderConfigKey, id, LLMProviderModelListKey],
       },
-      checkerItem ?? {
-        children: <Checker model={checkModel!} provider={id} />,
-        desc: t('llm.checker.desc'),
-        label: t('llm.checker.title'),
-        minWidth: undefined,
-      },
+      showChecker
+        ? (checkerItem ?? {
+            children: <Checker model={checkModel!} provider={id} />,
+            desc: t('llm.checker.desc'),
+            label: t('llm.checker.title'),
+            minWidth: undefined,
+          })
+        : undefined,
       showAceGcm && isServerMode && aceGcmItem,
     ].filter(Boolean) as FormItemProps[];
 

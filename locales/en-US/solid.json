@@ -1,0 +1,10 @@
+{
+  "login": "Login",
+  "loginOrSignup": "Login / Sign Up",
+  "profile": "Profile",
+  "security": "Security",
+  "signout": "Sign Out",
+  "signup": "Sign Up",
+  "switch": "Switch",
+  "unknown": "Unknown User"
+}

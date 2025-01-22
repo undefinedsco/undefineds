@@ -74,7 +74,7 @@ const StoreInitialization = memo(() => {
   useStoreUpdater('router', router);
 
   // Import settings from the url
-  const searchParam = useSearchParams()!.get(LOBE_URL_IMPORT_NAME);
+  const searchParam = useSearchParams().get(LOBE_URL_IMPORT_NAME);
   useEffect(() => {
     // Why use `usUserStateInit`,
     // see: https://github.com/lobehub/lobe-chat/pull/4072

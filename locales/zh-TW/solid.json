@@ -1,0 +1,10 @@
+{
+  "login": "登入",
+  "loginOrSignup": "登入 / 註冊",
+  "profile": "個人資料",
+  "security": "安全性",
+  "signout": "登出",
+  "signup": "註冊",
+  "switch": "切換",
+  "unknown": "未知使用者"
+}

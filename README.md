@@ -1,6 +1,6 @@
 <div align="center">
   <a name="readme-top"></a>
-  <h1>undefineds</h1>
+  <h1>LinQ</h1>
 
   <p>
     <strong>Live Simpler With AI</strong> ✨
@@ -21,29 +21,28 @@
 
 ## Overview
 
-**undefineds** is a cutting-edge platform designed to simplify your life with AI. Built on the Solid project, it ensures privacy while offering powerful features to manage your digital world. 🔒
+**LinQ** is a Linked Sequence platform designed to bring all your digital activities together in one place. By connecting everything you do online into a single, easy-to-follow POD (Personal Online Data), LinQ helps you stay organized and in control. With the power of AI, LinQ acts as your personal assistant, learning from your habits to offer helpful suggestions and make your digital life smoother and more efficient. 🔒🤖
+
+
+![LinQ Overview](public/images/overview.png)
+
+### What is a Sequence?
+
+A **Sequence** is a comprehensive record of all your actions and interactions in your digital life, such as sending messages, receiving emails, and navigating through apps. These actions and interactions are organized into a coherent structure that helps you manage your digital interactions more effectively.
+
+### The Role of the Assistant
+
+Through the power of AI, the Assistant leverages your Sequences to understand what has happened in your digital life. It can answer your questions based on your current context, help manage your Sequences, and even generate a personalized AI tailored to your unique behavior patterns. This personalized AI not only enhances your productivity but also ensures that your digital interactions are as seamless and efficient as possible.
 
 ## Features
 
-### Privacy-First Messaging Platform
+### Privacy-First Semantic Sequence
 
-- **Secure Data Management**: Manage chat histories, contacts, and more with privacy protection. 🔐
-- **Third-Party Integration**: Easily create message-based applications with privacy in mind. 🤝
+- **Secure and Semantic Data Management**: Store chat histories, contacts, and other data in a semantic web format within your [POD (Personal Online Datastore)]https://solidproject.org/), ensuring all information remains under your control and protected. This setup allows for seamless third-party integration while maintaining a strong focus on user privacy, leveraging the secure architecture of [Community Solid Pod 7.0+](https://github.com/CommunitySolidServer/CommunitySolidServer). 🔐🤝
 
-### Co-write your own story
+### Interact with Your AI Assistant
 
-- **Comprehensive Data Collection**: Gather data anytime, anywhere across multiple endpoints. 🌐
-- **AI-Driven Insights**: Automatically build a knowledge graph of your personal history. 📚
-
-### Copilot your Life
-
-- **Personalized AI Companion**: An AI that truly understands you and assists in daily tasks. 🤖
-- **Goal Planning and Achievement**: Plan complex tasks and achieve ambitious goals with AI support. 🎯
-
-## Getting Started
-
-1. **Installation**: Instructions on how to install the platform. 🛠️
-2. **Usage**: Basic usage examples and commands. 📖
+- **LobeChat Experience**: Communicate with your AI assistant using the intuitive LobeChat UI(now updated to version 1.36), fully integrated within the [LobeChat ecosystem](https://lobechat.com/docs). This setup leverages LobeChat's comprehensive tools and resources for enhanced digital interactions. 🤖🌐
 
 ## Contributing
 

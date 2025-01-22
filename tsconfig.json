@@ -19,7 +19,12 @@
     "types": ["vitest/globals", "@serwist/next/typings"],
     "paths": {
       "@/*": ["./src/*"],
-      "~test-utils": ["./tests/utils.tsx"]
+      "~test-utils": ["./tests/utils.tsx"],
+      "@/layout/AuthProvider": ["./src/layout/AuthProvider/index.electron"],
+      "@/features/AvatarWithUpload": ["./src/features/AvatarWithUpload/index.solid"],
+      "./src/app/(main)/settings/common/features/Theme": [
+        "./src/app/(main)/settings/common/features/Theme/index.solid"
+      ]
     },
     "plugins": [
       {
