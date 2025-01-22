@@ -32,7 +32,7 @@ A **Sequence** is a comprehensive record of all your actions and interactions in
 
 ### The Role of the Assistant
 
-Through the power of AI, the Assistant leverages your Sequences to understand what has happened in your digital life. It can answer your questions based on your current context, help manage your Sequences, and even generate a personalized AI tailored to your unique behavior patterns. This personalized AI not only enhances your productivity but also ensures that your digital interactions are as seamless and efficient as possible.
+Harnessing the power of AI, the Assistant leverages your Sequences to understand what has happened in your digital life. By interacting with or observing the user, the Assistant quietly learns to assist within the framework of the user's [DIKW pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid), and in turn, aids in collecting data, organizing information, distilling knowledge, and expressing wisdom. The result is a personalized AI that adapts to your unique behavior patterns, enhancing your productivity and ensuring seamless and efficient digital interactions.
 
 ## Features
 
@@ -43,6 +43,38 @@ Through the power of AI, the Assistant leverages your Sequences to understand wh
 ### Interact with Your AI Assistant
 
 - **LobeChat Experience**: Communicate with your AI assistant using the intuitive LobeChat UI(now updated to version 1.36), fully integrated within the [LobeChat ecosystem](https://lobechat.com/docs). This setup leverages LobeChat's comprehensive tools and resources for enhanced digital interactions. 🤖🌐
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/)
+
+### Install Dependencies
+
+1. Run `yarn install`
+
+### Run as a Web For Development
+
+1. Run `yarn next:dev`
+
+### Build for Desktop
+
+**MacOS**
+
+1. Run `yarn build:docker` to build the standalone app
+2. Run `yarn electron:dist:dmg` to build the dmg file
+
+**Windows**
+
+1. Run `yarn build:docker` to build the standalone app
+2. Run `yarn electron:dist:exe` to build the exe file
+
+**Linux**
+
+1. Run `yarn build:docker` to build the standalone app
+2. Run `yarn electron:dist:deb` to build the deb file
 
 ## Contributing
 
